@@ -3,20 +3,26 @@ const entrada = document.getElementById('entrada');
 const lista = document.getElementById('lista');
 
 // array, lista, vetor 
-const itens = [];
+const itens = []; //sinaliza vetor
 
 botao.addEventListener('click',
 function (){
     let valorInput=entrada.value;
     itens.push(valorInput);
+    entrada.value="";
     console.log(itens);
+    imprimir();
     atualizar();
    }
 );
+function imprimir(){
 
-function atualizar(){
-    lista.innerHTML= "";
-    let li = document.createElement("li");
-    li.textContent="Deu certo.";
-    lista.appendChild(li);
+    lista.innerHTML="";
+
+    for(let i=0; i< itens.length; i++){
+        let li= document.createElement("li");
+         li.textContent=itens[i];
+        lista.appendChild(li);
+    }
+
 }
